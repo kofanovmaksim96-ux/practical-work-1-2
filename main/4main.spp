@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cout << "[+] Введите число: ";
+    cin >> n;
+    
+    for (int i = 1; i <= 9; i++) {
+        int answer;
+        cout << "[+] Решите пример: " << n << " x " << i << endl;
+        cout << "[+] Ответ: ";
+        cin >> answer;
+        
+        if (answer != n * i) {
+            cout << "[-] Ошибка, пример решен неверно!";
+            return 0;
+        }
+        
+        cout << "[+] Пример решен правильно!" << endl;
+    }
+    
+    cout << "[+] Примеры решены, поздравляем!";
+    return 0;
+}
