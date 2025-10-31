@@ -9,7 +9,7 @@ int main() {
 using namespace std;
 
 int main() {
-    // Целочисленные типы
+    
     int a_1 = 10;
     int a_2 = -5;
     int a_3 = 0;
