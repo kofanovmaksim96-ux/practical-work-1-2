@@ -1,0 +1,34 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	cout << "[1] порограмма\"Времена года\"" << endl;
+	cout << endl;
+	cout << "[1] Лето" << endl;
+	cout << "[2] Осень" << endl;
+	cout << "[3] Зима" << endl;
+	cout << "[4] Весна" << endl;
+	cout << endl;
+
+	int choice;
+	cout << "[~] Введите значение:";
+	cin >> choice;
+
+	if (choice == 1) {
+		cout << "[~] Сейчас лето можно легко одеваться" << endl;
+	}
+	else if (choice == 2) {
+		cout << "[~] Сейчас осень следует одеться тепло" << endl;
+	}
+	else if (choice == 3) {
+		cout << "[~] Сейчас зима следует одеться очень тепло" << endl;
+	}
+	else if (choice == 4) {
+		cout << "[~] Сейчас весна можно одеться полегче" << endl;
+	}
+	else {
+		cout << "[~] Такого времени года нет в списке" << endl;
+	}
+
+	return 0;
+}
