@@ -1,0 +1,117 @@
+#include <iostream>  
+#include <string>  
+#include <map>  
+
+using namespace std;
+
+
+void showMenu() {
+    setlocale(LC_ALL, "Russian");
+    cout << "[ + ] Переводчик" << endl;
+    cout << "[ 1 ] Русские слова" << endl;
+    cout << "[ 2 ] Английские слова" << endl;
+    cout << "[ 3 ] Выйти" << endl;
+}
+
+map<string, string> rusToEng = {
+    {"привет", "hello"},
+    {"до свидания", "goodbye"},
+    {"спасибо", "thank you"},
+    {"пожалуйста", "please"},
+    {"извините", "sorry"},
+    {"да", "yes"},
+    {"нет", "no"},
+    {"как дела", "how are you"},
+    {"хорошо", "good"},
+    {"плохо", "bad"},
+    {"книга", "book"},
+    {"компьютер", "computer"},
+    {"телефон", "phone"},
+    {"работа", "work"},
+    {"дом", "home"}
+};
+
+map<string, string> engToRus = {
+    {"hello", "привет"},
+    {"goodbye", "до свидания"},
+    {"thank you", "спасибо"},
+    {"please", "пожалуйста"},
+    {"sorry", "извините"},
+    {"yes", "да"},
+    {"no", "нет"},
+    {"how are you", "как дела"},
+    {"good", "хорошо"},
+    {"bad", "плохо"},
+    {"book", "книга"},
+    {"computer", "компьютер"},
+    {"phone", "телефон"},
+    {"work", "работа"},
+    {"home", "дом"}
+};
+
+void translateRusToEng() {
+    cout << "Выберите русское слово для перевода:" << endl;
+    for (const auto& pair : rusToEng) {
+        cout << pair.first << " ";
+    }
+    cout << endl;
+
+    string word;
+    cout << "Введите слово: ";
+    getline(cin, word);
+
+    auto it = rusToEng.find(word);
+    if (it != rusToEng.end()) {
+        cout << "Перевод: " << it->second << endl;
+    }
+    else {
+        cout << "Слово не найдено" << endl;
+    }
+}
+
+void translateEngToRus() {
+    cout << "Выберите английское слово для перевода:" << endl;
+    for (const auto& pair : engToRus) {
+        cout << pair.first << " ";
+    }
+    cout << endl;
+
+    string word;
+    cout << "Введите слово: ";
+    getline(cin, word);
+
+    auto it = engToRus.find(word);
+    if (it != engToRus.end()) {
+        cout << "Перевод: " << it->second << endl;
+    }
+    else {
+        cout << "Слово не найдено" << endl;
+    }
+}
+
+int main() {
+    int choice;
+
+    do {
+        showMenu();
+        cout << "Выберите пункт меню: ";
+        cin >> choice;
+        cin.ignore();  // Очищаем буфер ввода  
+
+        switch (choice) {
+        case 1:
+            translateRusToEng();
+            break;
+        case 2:
+            translateEngToRus();
+            break;
+        case 3:
+            cout << "Прощайте!" << endl;
+            break;
+        default:
+            cout << "Неверный выбор. Попробуйте еще раз." << endl;
+        }
+    } while (choice != 3);
+
+    return 0;
+}
