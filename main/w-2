@@ -1,0 +1,21 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    setlocale(LC_ALL, "Rus");
+    int number;
+
+    cout << "Введите число: ";
+    cin >> number;
+
+    cout << endl;
+
+    while (number > 0) {
+        cout << "Отсчет: " << number << endl;
+        number = number - 1; 
+    }
+
+    cout << "[ + ] Старт!" << endl;
+
+    return 0;
+}
