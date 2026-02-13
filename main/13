@@ -1,0 +1,77 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    setlocale(LC_ALL, "ru");
+    int figure, type, size;
+    char texture;
+
+    // Меню выбора фигуры
+    cout << "[ + ] Программа - \"Геометрические фигуры\"" << endl;
+    cout << "[ 1 ] Линия" << endl;
+    cout << "[ 2 ] Квадрат" << endl;
+    cout << "[ + ] Выберите фигуру: ";
+    cin >> figure;
+
+    system("cls"); // Очистка экрана
+
+    if (figure == 1) {
+        // ЛИНИЯ
+        cout << "[ + ] Фигура: \"Линия\"" << endl;
+        cout << "[ + ] Размер: ";
+        cin >> size;
+        cout << "[ + ] Текстура: ";
+        cin >> texture;
+
+        cout << "[ + ] Результат:" << endl;
+        // Простой цикл для линии
+        for (int i = 0; i < size; i++) {
+            cout << texture << " ";
+        }
+        cout << endl;
+
+    }
+    else if (figure == 2) {
+        // КВАДРАТ
+        cout << "[ + ] Фигура: \"Квадрат\"" << endl;
+        cout << "[ 1 ] Заполненный" << endl;
+        cout << "[ 2 ] Пустой" << endl;
+        cout << "[ + ] Выберите тип: ";
+        cin >> type;
+
+        cout << "[ + ] Размер: ";
+        cin >> size;
+        cout << "[ + ] Текстура: ";
+        cin >> texture;
+
+        cout << "[ + ] Результат:" << endl;
+
+        if (type == 1) {
+            // ЗАПОЛНЕННЫЙ квадрат
+            for (int row = 0; row < size; row++) {        // цикл для строк
+                for (int col = 0; col < size; col++) {    // цикл для столбцов
+                    cout << texture << " ";
+                }
+                cout << endl; // перенос строки после каждой строки квадрата
+            }
+
+        }
+        else if (type == 2) {
+            // ПУСТОЙ квадрат
+            for (int row = 0; row < size; row++) {
+                for (int col = 0; col < size; col++) {
+                    // Если первая или последняя строка, или первый или последний столбец - рисуем текстуру
+                    // Иначе - пробел
+                    if (row == 0 || row == size - 1 || col == 0 || col == size - 1) {
+                        cout << texture << " ";
+                    }
+                    else {
+                        cout << "  "; // два пробела вместо символа
+                    }
+                }
+                cout << endl;
+            }
+        }
+    }
+
+    return 0;
