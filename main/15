@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    setlocale(LC_ALL, "Rus");
+    int height;
+    char texture;
+
+    cout << "Размер: ";
+    cin >> height;
+    cout << "Текстура: ";
+    cin >> texture;
+
+    cout << endl << "Результат:" << endl << endl;
+
+    for (int i = 1; i <= height; i++) {
+        int spaces_before = height - i;
+        int chars = 2 * i - 1;
+
+        for (int j = 0; j < height * 2 - 1; j++) {
+            if (j < spaces_before || j >= spaces_before + chars) {
+                cout << ". ";
+            }
+            else {
+                cout << texture << " ";
+            }
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
