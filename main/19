@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    setlocale(LC_ALL, "Rus");
+    int size;
+    char texture;
+
+    cout << "Размер: ";
+    cin >> size;
+    cout << "Текстура: ";
+    cin >> texture;
+
+    system("cls");
+    cout << endl << "Результат:" << endl << endl;
+
+    for (int y = 0; y < size; y++) {
+        for (int x = 0; x < size; x++) {
+            if (x == size / 2 + y or x == size / 2 - y or x == size / 2 - size + y + 1 or x == size / 2 + size - y - 1) {
+                cout << texture << " ";
+            }
+            else {
+                cout << ". ";
+            }
+        }
+        cout << endl;
+    }
+    return 0;
+}
