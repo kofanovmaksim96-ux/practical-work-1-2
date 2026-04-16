@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    setlocale(LC_ALL, "Rus");
+    int size;
+    char texture;
+    bool miroxa = false;
+
+    cout << "Размер: ";
+    cin >> size;
+    cout << "Текстура: ";
+    cin >> texture;
+
+    system("cls");
+    cout << endl << "Результат:" << endl << endl;
+
+    for (int y = 0; y < size; y++) {
+        for (int x = 0; x < size; x++) {
+            if (y % 2 == 0) {
+                cout << texture << " ";
+            }
+            else if (x == 0 and miroxa == true) {
+                cout << texture << " ";
+            }
+            else if (x == size - 1 and miroxa == false) {
+                cout << texture << " ";
+            }
+            else {
+                cout << ". ";
+            }
+        }
+        if (y % 2 == 0) {
+            miroxa = !miroxa;
+        }
+        cout << endl;
+    } 
+    return 0;
+}
